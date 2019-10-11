@@ -1,0 +1,89 @@
+body {
+	background: #ddd;
+	font-family: arial;
+}
+
+/* editor wrap */
+#svg {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	width: 960px;
+	height: 600px;
+	border: 2px solid #333;
+}
+
+/* element */
+#svg .element:hover > .section {
+	opacity: 1;
+}
+
+/* element circle background */
+#svg .element circle {
+	fill: transparent;
+	stroke-width: 2px;
+	stroke: #111;
+}
+
+/* element section */
+#svg .element .section {
+	opacity: 0;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	-ms-transition: all 0.3s;
+	-o-transition: all 0.3s;
+	transition: all 0.3s;
+}
+
+/* element section path */
+#svg .element path {
+	fill: limegreen;
+	stroke: #111111;
+	stroke-width: 2px;
+	transition: all 0.2s;
+}
+#svg .element path:nth-of-type(1) {
+	d: path('M 0 0 L -28 -28 Q 0 -53 28 -28 Z');
+}
+#svg .element path:nth-of-type(2) {
+	d: path('M 0 0 L 28 -28 Q 53 0 28 28 Z');
+}
+#svg .element path:nth-of-type(3) {
+	d: path('M 0 0 L 28 28 Q 0 53 -28 28 Z');
+}
+#svg .element path:nth-of-type(4) {
+	d: path('M 0 0 L -28 28 Q -53 0 -28 -28 Z');
+}
+#svg .element path:hover {
+	fill: lime;
+}
+
+/* element section text */
+#svg .element text {
+	text-anchor: middle;
+	alignment-baseline: middle;
+	stroke: #333;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+#svg .element text:nth-of-type(1) {
+	transform: translate(0px, -24px);
+}
+#svg .element text:nth-of-type(2) {
+	transform: translate(24px, 0px);
+}
+#svg .element text:nth-of-type(3) {
+	transform: translate(0px, 24px);
+}
+#svg .element text:nth-of-type(4) {
+	transform: translate(-24px, 0px);
+}
+
+/* line option */
+#svg .line {
+	stroke: #111111;
+	stroke-width: 2px;
+}
