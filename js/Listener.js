@@ -5,6 +5,7 @@ class Listen  {
             shift: false
         };
         this.selectedElement = false;
+        this.clicked = false;
     }
 
     keydown (e) {
@@ -50,6 +51,24 @@ class Listen  {
 
     mouseleave (e) {
         this.selectedElement = false;
+    }
+
+    click (e) {
+        let target = $(e.target);
+
+        if (!this.selectedElement) {
+
+            // generate new element
+            if (target.hasClass('section')) {
+                let el = this.that.elements[target.parent('.element').data('id')];
+                let elPart = target.data('nth');
+
+                if (!target.hasClass('have-relation')) {
+                    this.that.factory.generateElement(el, elPart);
+                }
+            }
+
+        }
     }
 
     getMousePosition (e) {

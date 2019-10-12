@@ -43,7 +43,13 @@ class Line {
         this.selector = `#line-${this.id}`;
 
         svg.append(this.object).html(svg.html());
+        this.addClassToElement();
         this.update();
+    }
+
+    addClassToElement () {
+        $(`${this.el1.selector} path:nth-of-type(${this.elSection1})`).addClass('have-relation');
+        $(`${this.el2.selector} path:nth-of-type(${this.elSection2})`).addClass('have-relation');
     }
 
     update () {

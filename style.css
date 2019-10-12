@@ -5,6 +5,7 @@ body {
 
 /* editor wrap */
 #svg {
+	background: #fff;
 	position: absolute;
 	left: 50%;
 	top: 50%;
@@ -15,7 +16,7 @@ body {
 }
 
 /* element */
-#svg .element:hover > .section {
+#svg .element:hover > .section, #svg .element:hover > .button {
 	opacity: 1;
 }
 
@@ -58,6 +59,9 @@ body {
 #svg .element path:hover {
 	fill: lime;
 }
+#svg .element path.have-relation {
+	fill: #fff;
+}
 
 /* element section text */
 #svg .element text {
@@ -80,6 +84,14 @@ body {
 }
 #svg .element text:nth-of-type(4) {
 	transform: translate(-24px, 0px);
+}
+
+/* element button */
+#svg .element .button {
+	opacity: 0;
+	transition: 0.5s;
+	position: relative;
+	z-index: 99;
 }
 
 /* line option */
