@@ -1,6 +1,51 @@
+* {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
 body {
-	background: #ddd;
+	background: #fff;
 	font-family: arial;
+	overflow: hideen;
+}
+
+/* view wrap */
+#view {
+	background: #fff;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%) scale(0);
+	width: 100vw;
+	height: 100vh;
+	opacity: 0;
+	transition: all 0.4s;
+}
+#view .wrapper {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	border: 1px solid #111;
+	width: 60%;
+}
+
+/* view preview */
+#view .preview {
+	width: 100%;
+	height: 440px;
+	padding: 16px;
+}
+
+/* view button */
+#view .button-wrap {
+	width: 100%;
+	display: flex;
+	flex-wrap: nowrap;
+}
+#view .button-wrap button {
+	width: 100%;
+	padding: 8px;
 }
 
 /* editor wrap */
@@ -9,10 +54,16 @@ body {
 	position: absolute;
 	left: 50%;
 	top: 50%;
-	transform: translate(-50%, -50%);
-	width: 960px;
-	height: 600px;
-	border: 2px solid #333;
+	transform: translate(-50%, -50%) scale(0);
+	width: 100vw;
+	height: 100vh;
+	opacity: 0;
+	transition: all 0.4s;
+}
+
+#view.active, #svg.active {
+	transform: translate(-50%, -50%) scale(1);
+	opacity: 1;
 }
 
 /* element */
@@ -94,8 +145,59 @@ body {
 	z-index: 99;
 }
 
+/* element modal */
+#svg .element-modal .element-modal-div {
+	width: 100%;
+	height: 100%;
+	padding: 32px 64px;
+	border: 1px solid #111;
+	background: #fff;
+	transform: scale(0);
+	transition: all 0.5s;
+	position: relative;
+}
+#svg .element-modal .element-modal-div span {
+	content: 'x';
+	position: absolute;
+	right: 8px;
+	top: 8px;
+	cursor: pointer;
+	transition: all 0.5s;
+	transform: rotate(0deg);
+	display: inline;
+	padding: 8px;
+	border: 1px solid #111;
+}
+#svg .element-modal .element-modal-div::after:hover {
+	transform: rotate(360deg);
+}
+
 /* line option */
 #svg .line {
 	stroke: #111111;
-	stroke-width: 2px;
+	stroke-width: 3px;
+}
+
+/* hut */
+#hut {
+	position: absolute;
+	top: 30px;
+	right: 30px;
+	display: flex;
+}
+#hut .button-hut {
+	padding: 8px;
+	text-transform: uppercase;
+	font-weight: bold;
+	background: transparent;
+	border: 2px solid #337ab7;
+	color: #337ab7;
+	box-shadow: 0px 0px transparent;
+}
+#hut .button-hut:first-child {
+	border-right: 0px;
+}
+#hut .button-hut.active {
+	background: #337ab7;
+	color: #fff;
 }

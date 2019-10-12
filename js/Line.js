@@ -1,5 +1,7 @@
 class Line {
     constructor (el1, el2, elSection1, elSection2, id) {
+        this.active = true;
+
         this.add1 = {
             x: 0,
             y: 0
@@ -57,5 +59,6 @@ class Line {
         $(this.selector)[0].setAttributeNS(null, `y1`, this.el1.y + this.add1.y);
         $(this.selector)[0].setAttributeNS(null, `x2`, this.el2.x + this.add2.x);
         $(this.selector)[0].setAttributeNS(null, `y2`, this.el2.y + this.add2.y);
+        $(this.selector)[0].setAttributeNS(null, `transform`, `scale(${this.active ? '1' : '0'})`);
     }
 }

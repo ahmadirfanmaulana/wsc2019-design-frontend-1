@@ -1,7 +1,11 @@
 class Main {
     constructor () {
+        // define
+        this.state = ['design', 'presentation'];
+
         // dom
         this.svg = $('#svg');
+        this.view = $('#view');
         this.elements = [];
         this.lines = [];
 
@@ -35,6 +39,9 @@ class Main {
         this.svg.on('mouseleave', (e) => this.listen.mouseleave(e));
         this.svg.on('click', (e) => this.listen.click(e));
 
+        $('#button-design').click( (e) => this.changeState(e, 0) );
+        $('#button-presentation').click( (e) => this.changeState(e, 1) );
+
     }
 
     update () {
@@ -49,6 +56,26 @@ class Main {
 
         requestAnimationFrame(this.update.bind(this));
 
+    }
+
+    changeState (e, index) {
+        let state = this.state[index];
+        let button = $(e.target);
+
+        // remove class from all buttons
+        $('button.button-hut').removeClass('active');
+
+        if (state == 'design') {
+            this.view.removeClass('active');
+            this.svg.addClass('active');
+
+            button.addClass('active');
+        } else {
+            this.svg.removeClass('active');
+            this.view.addClass('active');
+
+            button.addClass('active');
+        }
     }
 
 

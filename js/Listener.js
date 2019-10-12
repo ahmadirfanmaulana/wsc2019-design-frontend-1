@@ -67,6 +67,20 @@ class Listen  {
                     this.that.factory.generateElement(el, elPart);
                 }
             }
+            
+            // edit action
+            if (target.hasClass('button-element') && target.data('action') == 'edit') {
+                this.that.elements[target.parent('.button').parent('.element').data('id')].showModal();
+            }
+
+            // delete action
+            if (target.hasClass('button-element') && target.data('action') == 'delete') {
+
+                this.that.elements[target.parent('.button').parent('.element').data('id')].delete(this.that);
+
+            }
+
+
 
         }
     }
